@@ -1,7 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 // import 'bootstrap/dist/css/bootstrap.min0=.css'
 
 const SignUp = () => {
+    const [name, setName]=useState()
+    const [email, setEmail]=useState()
+    const [password, setPassword]=useState()
   return (
     <div className='d-flex justify-content-center align-items-center bg-secondary vh-100'>
         <div className='bg-white p-3 rounded w-25'>
@@ -9,20 +13,21 @@ const SignUp = () => {
             <form action="">
                 <div className='mb-3'>
                     <label htmlFor="name">Name</label>
-                    <input type="text" placeholder='your name' name='name' className='form-control' autoComplete='off'/>
+                    <input onChange={(e)=>setName(e.target.value)} type="text" placeholder='your name' name='name' className='form-control' autoComplete='off'/>
                 </div>
                 <div className='mb-3'>
                     <label htmlFor="email">Email</label>
-                    <input type="text" placeholder='your email' name='email' className='form-control' autoComplete='off'/>
+                    <input onChange={(e)=>setEmail(e.target.value)}  type="email" placeholder='your email' name='email' className='form-control' autoComplete='off'/>
                 </div>
                 <div className='mb-3'>
                     <label htmlFor="password">Password</label>
-                    <input type="password" placeholder='your password' name='password' className='form-control' autoComplete='off'/>
+                    <input onChange={(e)=>setPassword(e.target.value)}  type="password" placeholder='your password' name='password' className='form-control' autoComplete='off'/>
                 </div>
                 <button className='btn btn-success'>SignUp</button>
-                <p>already have an account?</p>
+                
             </form>
-            <button className='btn btn-defult'>Login</button>
+            <p>already have an account?</p>
+            <Link to="/login" className='btn btn-defult'>Login</Link>
         </div>
     </div>
   )
