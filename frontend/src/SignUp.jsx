@@ -9,7 +9,7 @@ const SignUp = () => {
     const [password, setPassword]=useState()
 
     const handleSubmit=(e)=>{
-        e.prevent.default()
+        e.preventDefault()
         axios.post("http://localhost:3001/register",{name,email,password})
         .then(result=>console.log(result))
         .catch(err=>console.log(err))
@@ -20,16 +20,16 @@ const SignUp = () => {
             <h2>Register</h2>
             <form onSubmit={handleSubmit}>
                 <div className='mb-3'>
-                    <label htmlFor="email">Name</label>
-                    <input onChange={(e)=>setName(e.target.value)} type="text"  placeholder='your name' name='name' className='form-control' autoComplete='off'/>
+                    <label htmlFor="name">Name</label>
+                    <input onChange={(e)=>setName(e.target.value)} type="text" id='name'  placeholder='your name' name='name' className='form-control' autoComplete='off'/>
                 </div>
                 <div className='mb-3'>
                     <label htmlFor="email">Email</label>
-                    <input onChange={(e)=>setEmail(e.target.value)}  type="email"  id='email' placeholder='your email' name='email' className='form-control' autoComplete='off'/>
+                    <input onChange={(e)=>setEmail(e.target.value)}  type="email" id='email'  placeholder='your email' name='email' className='form-control' autoComplete='off'/>
                 </div>
                 <div className='mb-3'>
-                    <label htmlFor="email">Password</label>
-                    <input onChange={(e)=>setPassword(e.target.value)} type="password" placeholder='your password' name='password' className='form-control' autoComplete='off'/>
+                    <label htmlFor="password">Password</label>
+                    <input onChange={(e)=>setPassword(e.target.value)} type="password" id='password' placeholder='your password' name='password' className='form-control' autoComplete='off'/>
                 </div>
                 <button className='btn btn-success'>SignUp</button>
                 
