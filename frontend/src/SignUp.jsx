@@ -1,16 +1,24 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import axios from "axios"
 // import 'bootstrap/dist/css/bootstrap.min0=.css'
 
 const SignUp = () => {
     const [name, setName]=useState()
     const [email, setEmail]=useState()
     const [password, setPassword]=useState()
+
+    const handleSubmit=(e)=>{
+        e.prevent.default()
+        axios.post("",{name,email,password})
+        .then(result=>console.log(result))
+        .catch(err=>console.log(err))
+    }
   return (
     <div className='d-flex justify-content-center align-items-center bg-secondary vh-100'>
         <div className='bg-white p-3 rounded w-25'>
             <h2>Register</h2>
-            <form action="">
+            <form onSubmit={handeSubmit}>
                 <div className='mb-3'>
                     <label htmlFor="name">Name</label>
                     <input onChange={(e)=>setName(e.target.value)} type="text" placeholder='your name' name='name' className='form-control' autoComplete='off'/>
